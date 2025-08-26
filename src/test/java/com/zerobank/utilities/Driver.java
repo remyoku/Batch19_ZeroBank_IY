@@ -20,7 +20,7 @@ public class Driver {
 
             switch (browser.toLowerCase()){
                 case "chrome":
-                    driver = new ChromeDriver();
+                    driver = new ChromeDriver(new ChromeOptions().addArguments("--disable-save-password-bubble","--disable-popup-blocking"));
                     break;
                 case "chrome-headless":
                     driver = new ChromeDriver(new ChromeOptions().addArguments("--headless"));

@@ -33,18 +33,23 @@ public class Login_StepDefs {
         String expected = "username";
         Assert.assertEquals(actual, expected);
     }
+
     @When("User enters {string} and {string}")
     public void user_enters_and(String username, String password) {
-        loginPage.login(username,password);
+        loginPage.login(username, password);
     }
+
     @When("User taps on login button")
     public void user_taps_on_login_button() {
-
+        loginPage.tapOnLoginBtn();
     }
+
     @Then("User validates that error message is displayed")
     public void user_validates_that_error_message_is_displayed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        String expectedErrorMsg="Login and/or password are wrong.";
+        String actualErrorMsg= loginPage.getErrorMessage();
+
+        Assert.assertEquals(expectedErrorMsg,actualErrorMsg);
     }
 
 

@@ -16,12 +16,13 @@ Feature: Login Functionality
     And User taps on login button
     Then User validates that error message is displayed
     Examples:
-      | username | password |
+      | username      | password      |
       | username      | password      |
       | username      | wrongPassword |
       | wrongUsername | password      |
       |               | password      |
       | username      |               |
+      | wrongUsername | wrongPassword |
       |               |               |
 
 

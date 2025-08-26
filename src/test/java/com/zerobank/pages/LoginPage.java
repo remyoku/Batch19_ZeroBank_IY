@@ -19,6 +19,9 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "(//a[@class='dropdown-toggle'])[2]")
     private WebElement usersname;
 
+    @FindBy(css = "[class='alert alert-error']")
+    private WebElement wrongLoginMsg;
+
     public void login() {
         loginInputBox.sendKeys(ConfigurationReader.get("userName"));
        passwordInputBox.sendKeys(ConfigurationReader.get("passWord"));
@@ -33,9 +36,13 @@ public class LoginPage extends BasePage {
         BrowserUtils.waitFor(1);
         Driver.get().navigate().back();
     }
-
-
+    public void tapOnLoginBtn(){
+        loginBtn.click();
+    }
     public String  getusersName() {
         return usersname.getText();
+    }
+    public String getErrorMessage(){
+        return wrongLoginMsg.getText();
     }
 }
